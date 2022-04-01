@@ -25,6 +25,6 @@ pipeline {
                 contextPath: 'default', 
                 war: '**/*.war'
             }
-        }        
+        }    
     }
 }
