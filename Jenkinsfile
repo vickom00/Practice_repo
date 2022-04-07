@@ -7,6 +7,13 @@ pipeline {
                 git 'https://github.com/vickom00/Sample_project.git'
             }
         }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh 'mvn -f SampleWebApp/pom.xml clean package sonar:sonar'
+                }
+            }
+        }
         stage('Test with Maven') {
             steps {
                 sh 'cd SampleWebApp && mvn test'
