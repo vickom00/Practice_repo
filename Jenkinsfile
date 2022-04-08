@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Deploy artificat to Jfrog') {
             steps {
-                rtDownload (
+                rtUpload (
                     serverId: 'first-jfrog',
                     spec: '''{
                           "files": [
