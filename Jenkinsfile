@@ -32,11 +32,11 @@ pipeline {
         stage('Deploy artificat to Jfrog') {
             steps {
                 rtDownload (
-                    serverId: 'jfrog',
+                    serverId: 'first-jfrog',
                     spec: '''{
                           "files": [
                             {
-                              "pattern": "**/*.war",
+                              "pattern": "/var/lib/jenkins/workspace/test-pipeline/SampleWebApp/target/*.war",
                               "target": "my-first-repo/"
                             }
                           ]
