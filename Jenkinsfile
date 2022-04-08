@@ -29,6 +29,21 @@ pipeline {
                 sh 'cd SampleWebApp && mvn package'
             }
         }
+        stage('Deploy artificat to Jfrog') {
+            steps {
+                rtDownload (
+                    serverId: 'first-jfrog',
+                    spec: '''{
+                          "files": [
+                            {
+                              "pattern": "**/*.war",
+                              "target": "my-first-repo/"
+                            }
+                          ]
+                    }''',
+                  )
+            }
+        }
         stage('Deploy to Tomcat') {
             steps {
                 deploy adapters: [tomcat9(credentialsId: 'devop1', 
