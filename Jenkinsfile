@@ -36,7 +36,7 @@ pipeline {
                     spec: '''{
                           "files": [
                             {
-                              "pattern": "/var/lib/jenkins/workspace/test-pipeline/SampleWebApp/target/*.war",
+                              "pattern": "**/*.war",
                               "target": "my-first-repo/"
                             }
                           ]
